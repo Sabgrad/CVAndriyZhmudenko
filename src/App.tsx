@@ -1,9 +1,11 @@
-function App() {
+import Section from "./components/Section"
 
+
+const App = () => {
 
   return (
     <>
-      <span>CV Project</span>
+      <Section text={'styled component try'}/>
     </>
   )
 }

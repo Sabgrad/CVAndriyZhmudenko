@@ -1,12 +1,11 @@
-import Section from "./components/Section"
+import React from 'react'
+import { Section } from './components/Section/Section'
+import './styles/Global.sass'
 
-
-const App = () => {
+const App: React.FC = () => {
 
   return (
-    <>
-      <Section text={'styled component try'}/>
-    </>
+    <Section text={'text'}/>
   )
 }
 

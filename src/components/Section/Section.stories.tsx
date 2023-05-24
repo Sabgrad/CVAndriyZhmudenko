@@ -7,10 +7,7 @@ const meta = {
   component: Section,
   tags: ['autodocs'],
   argTypes: {
-    text: {
-      type: 'string',
-      description: 'some text'
-    }
+   
   }
 } satisfies Meta<typeof Section>
 
@@ -21,6 +18,6 @@ type Story = StoryObj<typeof Section>
 
 export const Default: Story = {
   args: {
-    text: '123'
+    
   }
 }

@@ -13,6 +13,7 @@ export type SectionDataItemType = {
 export type ProjectType = {
   link: string
   description: string
+  tools: string[]
 }
 
 export const sectionData: SectionDataItemType[] = [
@@ -46,25 +47,21 @@ export const projects: ProjectType[] = [
   {
     link: 'github link 1',
     description: 'descriptiom 1',
+    tools: ['React.js', 'JavaScript', 'RestAPI(SpotifyApi)', 'axios', 'ContextApi', 'ContextApi']
   },
   {
     link: 'github link 2',
     description: 'descrtiption 2',
+    tools: ['React.js', 'JavaScript', 'RestAPI(SpotifyApi)', 'axios', 'ContextApi', 'ContextApi']
   },
   {
     link: 'github link 3',
     description: 'descritpion 3',
+    tools: ['React.js', 'JavaScript', 'RestAPI(SpotifyApi)', 'axios', 'ContextApi', 'ContextApi']
   },
   {
     link: 'github link 4',
     description: 'descritpion 4 ',
+    tools: ['React.js', 'JavaScript', 'RestAPI(SpotifyApi)', 'axios', 'ContextApi', 'ContextApi']
   },
-  {
-    link: 'githublink 5',
-    description: 'descritpion 5',
-  },
-  {
-    link: 'githublink 6',
-    description: 'descritpion 6',
-  }
 ]

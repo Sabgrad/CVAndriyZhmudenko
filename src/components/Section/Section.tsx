@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Section.module.sass'
-import { SectionDataItemType } from '../../assets/SectionData'
+import { SectionDataItemType } from '../../assets/data'
 import MyProject from '../MyProjects/MyProject'
 
 export type SectionProps = {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './MyProject.module.sass'
-import { projects } from '../../assets/SectionData'
+import { projects } from '../../assets/data'
 import cn from 'classnames'
 
 export type MyProjectProps = {
@@ -24,19 +24,17 @@ const MyProject: React.FC<MyProjectProps> = ({ handleActive }) => {
 
   const handleScroll = (onTop: boolean) => {
     if (onTop) {
-      if (current === 0) {
-        setCurrent(size - 1)
-      } else {
+      if (current !== 0) {
         setCurrent(prev => prev - 1)
       }
     } else {
-      if (current === size - 1) {
-        setCurrent(0)
-      } else {
+      if (current !== size - 1) {
         setCurrent(prev => prev + 1)
       }
     }
   }
+
+  // current === size - 1 ? false : true
 
   useEffect(() => {
     if (refProjectList.current) {
@@ -44,7 +42,11 @@ const MyProject: React.FC<MyProjectProps> = ({ handleActive }) => {
       setSize(children.length)
       children.forEach((item, index) =>
         index === current ?
-          (item.className = cn(styles.project_section, styles.current), item.scrollIntoView(current === size - 1 ? false : true)) :
+          (
+            item.className = cn(styles.project_section, styles.current),
+            item.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
+          )
+          :
           item.className = cn(styles.project_section)
       )
     }
@@ -71,13 +73,14 @@ const MyProject: React.FC<MyProjectProps> = ({ handleActive }) => {
         B
       </button>
       <div
-        className={styles.projects_container}
+        className={styles.project_container}
         ref={refProjectList}
       >
         {
-          projects.map((project) =>
+          projects.map((project, index) =>
             <section
               key={project.link}
+              onClick={() => setCurrent(index)}
             >
               <span>
                 {project.link}
@@ -85,6 +88,15 @@ const MyProject: React.FC<MyProjectProps> = ({ handleActive }) => {
               <span>
                 {project.description}
               </span>
+              <ul className={styles.tools}>
+                {
+                  project.tools.map((tool, index) =>
+                    <li key={index}>
+                      {tool}
+                    </li>
+                  )}
+
+              </ul>
             </section>
           )
         }

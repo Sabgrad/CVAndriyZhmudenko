@@ -2,7 +2,7 @@
   position: absolute
   top: 0
   left: 0
-  height: 100%
+  height: 100vh
   width: 100%
   display: grid
   grid-template-columns: 1fr 2rem
@@ -27,16 +27,28 @@
   grid-area: 2 / 2 / 3 / 2
   align-self: flex-end
 
-.projects_container
+.project_container
   grid-area: 1 / 1 / 3 / 2
   overflow: hidden
-
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  
 .project_section
   display: flex
   flex-direction: column
-  height: 25%
+  min-height: 25%
+  min-width: 90%
+  background: red
   &.current
     background: var(--white)
-    span
+    min-width: 100%
+    span, li
+      color: var(--black)
+  &:hover
+    background: var(--white)
+    span, li
       color: var(--black)
     

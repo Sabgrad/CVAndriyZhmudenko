@@ -1,7 +1,7 @@
 import React from 'react'
 import { Section } from './components/Section/Section'
 import './styles/Global.sass'
-import { sectionData } from './assets/SectionData'
+import { sectionData } from './assets/data'
 
 const App: React.FC = () => {
 

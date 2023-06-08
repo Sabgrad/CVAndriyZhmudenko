@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { } from 'react'
 import styles from './Section.module.sass'
 import { SectionDataItemType } from '../../assets/data'
-import MyProject from '../MyProjects/MyProject'
+import MyProjects from '../MyProjects/MyProjects'
+import About from '../About/About'
+import classNames from 'classnames'
 
 export type SectionProps = {
   data: SectionDataItemType
@@ -9,27 +11,23 @@ export type SectionProps = {
 
 export const Section: React.FC<SectionProps> = ({ data }) => {
 
-  const [active, setActive] = useState(false)
+ 
 
-  const handleActive = () => {
-    setActive(prev => !prev)
+  const classNameSection = () => {
+    if(data.type === 'project') {
+      return classNames(styles.section, styles.project)
+    } if (data.type === 'about') {
+      return classNames(styles.section, styles.about)
+    } 
+    else return styles.section
   }
 
   return (
-    <section className={styles.section}>
-      <div className={styles.img_container}>
-        <img src={data.imgLink} alt={data.imgLink} />
-      </div>
-      <p className={styles.title}>
-        {data.title}
-      </p>
+    <section className={classNameSection()}>
       <div className={styles.body_container}>
-        <span className={styles.text}>
-          {data.text}
-        </span>
-        {data.project ? <button onClick={handleActive}>show project</button> : null}
-        {active ? <MyProject handleActive={handleActive}/> : null}
-      </div>
+        {data.type === 'about' ? <About data={data}/> : null}
+        {data.type === 'project' ? <MyProjects /> : null}
+      </div> 
     </section>
   )
 }

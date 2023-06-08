@@ -1,0 +1,21 @@
+.bar
+  height: max-content
+  height: 1rem
+  width: 7.5rem
+  background: var(--black)
+  display: flex
+  gap: 0.15rem
+  padding: 0.1rem
+  align-items: center
+  opacity: 0
+  transition: opacity 0.1s linear
+  justify-content: center
+  div
+    height: 100%
+    width: 0.75rem
+    background: var(--black-gray)
+    &.active
+      background: var(--red)
+  &.isHover
+    opacity: 1
+    transition: opacity 0.3s linear

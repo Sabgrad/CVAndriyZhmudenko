@@ -9,14 +9,14 @@ import { ReactComponent as Mod } from '../assets/svg/modifications.svg'
 import { ReactComponent as Linkedin } from '../assets/svg/linkedin.svg'
 import { ReactComponent as GitHub } from '../assets/svg/github.svg'
 
-export type SectionDataItemType = {
+export type SectionDataItem = {
   imgLink: string
   title: string
   text: string
-  type: boolean | string
+  type: string
 }
 
-export const sectionData: SectionDataItemType[] = [
+export const sectionData: SectionDataItem[] = [
   {
     imgLink: me,
     title: 'first section',
@@ -27,7 +27,7 @@ export const sectionData: SectionDataItemType[] = [
     imgLink: way,
     title: 'second section',
     text: 'second section text',
-    type: false
+    type: 'way'
   },
   {
     imgLink: my_projects,
@@ -39,7 +39,7 @@ export const sectionData: SectionDataItemType[] = [
     imgLink: goals,
     title: 'four section',
     text: 'four section text',
-    type: false
+    type: 'goals'
   }
 ]
 
